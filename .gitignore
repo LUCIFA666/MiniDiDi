@@ -1,0 +1,16 @@
+build/
+artifacts/
+*.log
+*.pid
+*.asv
+.idea/
+.vscode/
+local.properties
+**/.gradle/
+**/build/
+.DS_Store
+Thumbs.db
+*.keystore
+*.jks
+.env
+__pycache__/

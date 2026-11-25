@@ -1,0 +1,17 @@
+* text=auto eol=lf
+third_party/** -whitespace
+web/vendor/** -whitespace
+*.cpp text eol=lf
+*.hpp text eol=lf
+*.h text eol=lf
+*.js text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+*.md text eol=lf
+*.java text eol=lf
+*.gradle text eol=lf
+*.yml text eol=lf
+*.py text eol=lf
+*.m text eol=lf
+*.ps1 text eol=crlf
+*.cmd text eol=crlf

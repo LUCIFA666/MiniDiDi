@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MiniDiDi · 城市调度实验室</title>
+  <link rel="stylesheet" href="/style.css">
+  <script type="importmap">{"imports":{"three":"/vendor/three.module.js","three/addons/":"/vendor/"}}</script>
+</head>
+<body>
+  <aside class="rail"><a class="brand" href="/" aria-label="MiniDiDi 首页">m<span>·</span></a><div class="rail-line"></div><button class="rail-button selected" title="数字世界" aria-label="数字世界">▦</button><button id="rail-compare" class="rail-button" title="调度实验" aria-label="调度实验">◴</button><a class="rail-button" href="/api/export" title="导出运行数据" aria-label="导出运行数据">↓</a><span class="rail-caption">TONGJI<br>DESIGN C</span></aside>
+  <main>
+    <header><div><div class="eyebrow">AUTONOMOUS MOBILITY LAB <span>/ 01</span></div><h1>城市调度实验室<span class="title-dot">.</span></h1><p class="intro">让每一次出发，都有更好的路径。</p></div><div class="header-right"><span id="connection" class="connection"><i></i>正在连接</span><span class="project-tag">MiniDiDi <b>数字孪生</b></span></div></header>
+    <section class="metrics" aria-label="运行指标">
+      <article class="metric"><span>在线车辆 <small>FLEET</small></span><div><strong id="metric-fleet">—</strong><em>辆</em><svg viewBox="0 0 100 24"><path d="M0 20 L16 20 L28 14 L45 14 L59 7 L75 7 L90 3 L100 3"/></svg></div><p id="fleet-caption">5 辆自主数字车 · 等待服务端</p></article>
+      <article class="metric"><span>已完成订单 <small>COMPLETED</small></span><div><strong id="metric-complete">—</strong><em>单</em><span class="metric-icon">↗</span></div><p id="complete-caption">每一次接送，实时记录</p></article>
+      <article class="metric"><span>平均接客等待 <small>WAIT TIME</small></span><div><strong id="metric-wait">—</strong><em>仿真秒</em></div><p>从下单到上车 · 统计已上车订单</p></article>
+      <article class="metric"><span>累计行驶里程 <small>DISTANCE</small></span><div><strong id="metric-distance">—</strong><em>m</em><span id="safety" class="safety">● 零碰撞</span></div><p>静态障碍避让 + 动态预约</p></article>
+    </section>
+    <section class="workspace">
+      <article class="map-card">
+        <div class="section-header"><div class="section-title"><span class="live-dot"></span><h2>数字世界</h2><span class="muted">LIVE WORLD</span></div><div class="view-toggle"><button id="view-3d" class="active">3D 视图</button><button id="view-2d">2D 视图</button></div></div>
+        <div id="world-view"><div class="map-top"><span class="map-city">MINI CITY <b>01</b></span><span id="clock">T + 0000 s</span></div><div id="canvas-host"></div><div class="map-bottom"><span>状态环 <i class="legend-dot green"></i>空闲 <i class="legend-dot orange"></i>接客 <i class="legend-dot blue"></i>载客</span><span id="map-hint">拖动旋转 · 滚轮缩放 · 点击车辆查看路线</span></div><div id="map-error" hidden></div></div>
+        <div class="control-bar"><button id="pause" class="primary">Ⅱ 暂停仿真</button><label class="speed-label">仿真速度 <select id="speed"><option value="1">1×</option><option value="3" selected>3×</option><option value="6">6×</option><option value="12">12×</option></select></label><label class="policy-label">调度策略 <select id="strategy"><option value="balanced">批量均衡调度</option><option value="nearest">最近空车优先</option></select></label><button id="reset" class="text-button">↻ 重置</button></div>
+      </article>
+      <article class="orders-card"><div class="section-header"><div class="section-title"><h2>实时订单</h2><span id="pending-count" class="count">0 待分配</span></div><span class="muted">DISPATCH</span></div><div class="order-list" id="orders"><div class="empty">等待第一笔订单</div></div><div class="orders-footer"><span class="live-dot"></span>随机订单自动生成，无需人工派单</div></article>
+    </section>
+    <section class="lower-grid">
+      <article class="fleet-card"><div class="section-header"><div class="section-title"><h2>车队状态</h2><span class="muted">FLEET STATUS</span></div><span id="fleet-summary" class="muted">—</span></div><div id="fleet" class="fleet-grid"></div><div id="selection-info" class="selection-info">选择一辆车，查看其任务与规划路线。</div></article>
+      <article class="experiment-card"><div class="experiment-top"><span class="eyebrow">SCHEDULING EXPERIMENT</span><span class="experiment-symbol">↗</span></div><h2>相同订单，两种决策。</h2><p>固定地图、车辆与订单种子，比较等待时间、里程和完成率。</p><button id="compare" class="experiment-button">运行策略对比 <span>→</span></button></article>
+    </section>
+    <section class="integration-grid">
+      <article class="device-card"><span class="device-icon">M</span><div><h3>MATLAB 模拟车 <span id="matlab-status" class="device-status">未接入</span></h3><p id="matlab-detail">独立运动控制 · 网络状态同步 · M01</p></div><span class="device-type">DIGITAL TWIN</span></article>
+      <article class="device-card phone-card"><span class="device-icon phone-icon">P</span><div><h3>手机传感器 <span id="phone-status" class="device-status">未接入</span></h3><p id="phone-detail">IMU + GNSS · 本地位姿估计 · P01</p></div><canvas id="phone-pose" width="110" height="60" aria-label="手机独立实验区位姿"></canvas></article>
+    </section>
+    <footer><span>MiniDiDi / 综合设计与实践 C</span><span>自主运行 · 全局调度 · 多端协同</span><a href="/api/export">导出本次运行数据 ↗</a></footer>
+  </main>
+  <dialog id="comparison"><div class="dialog-header"><div><div class="eyebrow">REPRODUCIBLE BENCHMARK</div><h2>调度策略对比</h2></div><button id="close-dialog" aria-label="关闭">×</button></div><p>5 辆车 · 80 笔固定订单 · 1,200 仿真秒 · 独立实验，不改变演示状态</p><div id="comparison-body"></div><div class="dialog-actions"><button id="download-comparison" class="primary" disabled>下载实验 JSON</button><span id="compare-seed" class="muted"></span></div></dialog>
+  <div id="toast" role="status" hidden></div>
+  <script type="module" src="/app.js"></script>
+</body></html>

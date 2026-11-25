@@ -1,0 +1,39 @@
+name: Build and integration checks
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  cpp:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+      - run: cmake --build build -j2
+      - run: ctest --test-dir build --output-on-failure
+      - run: python3 tests/api_tests.py
+      - run: python3 scripts/benchmark.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: paired-strategy-results
+          path: experiments/
+  android:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@v3
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.9'
+      - run: gradle -p clients/android assembleDebug lint
+      - run: |
+          mkdir -p build/java
+          javac -d build/java clients/android/app/src/main/java/edu/tongji/minididi/PoseEstimator.java tests/PoseEstimatorTest.java
+          java -cp build/java PoseEstimatorTest
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MiniDiDiPhone-debug-apk
+          path: clients/android/app/build/outputs/apk/debug/*.apk

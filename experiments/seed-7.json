@@ -1,0 +1,43 @@
+{
+  "note": "同地图、同初始车辆、同到达时刻和起终点；不接入外部设备。等待时间仅统计已接到乘客的订单，同时报告未完成数和未上车累计等待，避免只比较已完成样本。",
+  "order_count": 80,
+  "results": [
+    {
+      "metrics": {
+        "active_vehicles": 0,
+        "collisions": 0,
+        "completed": 80,
+        "completion_rate": 1.0,
+        "mean_journey_ticks": 21.675,
+        "mean_wait_ticks": 8.6125,
+        "orders": 80,
+        "outstanding_wait_ticks": 0.0,
+        "pending": 0,
+        "picked": 80,
+        "total_distance": 1729,
+        "yield_events": 5
+      },
+      "strategy": "nearest"
+    },
+    {
+      "metrics": {
+        "active_vehicles": 0,
+        "collisions": 0,
+        "completed": 80,
+        "completion_rate": 1.0,
+        "mean_journey_ticks": 23.025,
+        "mean_wait_ticks": 9.9625,
+        "orders": 80,
+        "outstanding_wait_ticks": 0.0,
+        "pending": 0,
+        "picked": 80,
+        "total_distance": 1837,
+        "yield_events": 1
+      },
+      "strategy": "balanced"
+    }
+  ],
+  "seed": 7,
+  "steps": 1200,
+  "vehicle_count": 5
+}

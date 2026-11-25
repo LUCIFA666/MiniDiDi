@@ -1,0 +1,26 @@
+[
+  {
+    "path": "third_party/httplib.h",
+    "version": "0.58.0",
+    "source": "https://raw.githubusercontent.com/yhirose/cpp-httplib/v0.58.0/httplib.h",
+    "sha256": "aa14e7e7bd2703694e0a6b6855af3b8c406102ab1fc56ac905fe33619b31faa5"
+  },
+  {
+    "path": "third_party/json.hpp",
+    "version": "3.12.0",
+    "source": "https://raw.githubusercontent.com/nlohmann/json/v3.12.0/single_include/nlohmann/json.hpp",
+    "sha256": "aaf127c04cb31c406e5b04a63f1ae89369fccde6d8fa7cdda1ed4f32dfc5de63"
+  },
+  {
+    "path": "web/vendor/three.module.js",
+    "version": "0.170.0",
+    "source": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+    "sha256": "ce1fa418de16a19495a9f72495580e3015d7745c296d3ce0485897f902ddedfb"
+  },
+  {
+    "path": "web/vendor/OrbitControls.js",
+    "version": "0.170.0",
+    "source": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/controls/OrbitControls.js",
+    "sha256": "80efaadea4f8a636a65fb0bd08bfef62f3d93a0bb94e2e7500f23176c5c07f4e"
+  }
+]

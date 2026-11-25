@@ -1,0 +1,7 @@
+﻿seed,steps,strategy,active_vehicles,collisions,completed,completion_rate,mean_journey_ticks,mean_wait_ticks,orders,outstanding_wait_ticks,pending,picked,total_distance,yield_events
+1,1200,nearest,0,0,80,1.0,24.6125,10.975,80,0.0,0,80,1944,11
+1,1200,balanced,0,0,80,1.0,24.9,11.3,80,0.0,0,80,1974,4
+7,1200,nearest,0,0,80,1.0,21.675,8.6125,80,0.0,0,80,1729,5
+7,1200,balanced,0,0,80,1.0,23.025,9.9625,80,0.0,0,80,1837,1
+42,1200,nearest,0,0,80,1.0,24.7875,10.2625,80,0.0,0,80,1981,2
+42,1200,balanced,0,0,80,1.0,24.8375,10.275,80,0.0,0,80,1983,4
