@@ -17,8 +17,12 @@ GitHub 私有仓库：[LUCIFA666/MiniDiDi](https://github.com/LUCIFA666/MiniDiDi
 | 前端 | 浏览器加载本地 Three.js 3D、切换 2D、暂停状态、策略比较表格正常；所检查浏览器控制台无 error/warn |
 | 响应式布局 | 检查 1366px 桌面布局与 390px 窄屏；窄屏 DOM 宽度约 375px，无水平溢出 |
 | 脚本 | PowerShell 语法检查、JavaScript 语法检查、Python 编译检查通过 |
+| GitHub Linux C++ CI | CMake 编译、核心测试、HTTP 联调、成对实验及结果归档全部通过 |
+| GitHub Android CI | JDK 17、Gradle 8.9；assembleDebug、lint、PoseEstimator JVM 测试全部通过，已生成并下载调试 APK |
 
 测试脚本位于 tests/。C++、HTTP、Java 控制台记录存放 build/validation-*.log，属于本地生成内容，不提交 Git。HTTP 中的 Python MATLAB/手机客户端只用于验证协议，不证明真实 MATLAB 或 Android 已运行。
+
+远程验证：[成功的 GitHub Actions 运行](https://github.com/LUCIFA666/MiniDiDi/actions/runs/45584776761)，代码提交 `39138e960e7fabbd9cf3863e7dd2b2002664adc5`。初次 Android 流水线因旧版 SDK 安装步骤请求了已下线的 tools 包而失败；已显式指定所需 SDK 包，同时修复传感器 JSON 数组的受检异常声明，重新构建通过。之后仅更新本说明和 README，未改变已验证代码。
 
 ## 已运行的成对实验
 
@@ -37,8 +41,7 @@ GitHub 私有仓库：[LUCIFA666/MiniDiDi](https://github.com/LUCIFA666/MiniDiDi
 ## 尚未验证或未完成的提交物
 
 - 本机未发现 MATLAB，因此 `.m` 文件及 test_controller 未在真实 MATLAB 执行；需要成员 3 在有许可证的环境验收。
-- 本机未发现 Android SDK/Android Studio；Android Activity、APK 构建和传感器真机采集尚未在本机验证。估计器单独通过 JVM 测试不代表 App 已能安装或硬件精度达标。
-- GitHub Actions 配置已写入，但上传前没有实际远程 CI 结果；不能宣称云端 APK 构建已成功。
+- 本机未发现 Android SDK/Android Studio；Activity 编译和 APK 构建已由 GitHub CI 验证，手机安装、传感器采集和定位精度仍未经真机验证。
 - 没有树莓派实物车；3D 是本次选择的挑战方向。
 - 正式技术报告 DOCX/PDF、五页正文 PPT 和真实演示视频尚未生成。已有技术说明、分工、验收清单和答辩提纲，可在真机联调后据此整理。
 

@@ -57,7 +57,7 @@ run_twin('http://127.0.0.1:8080')
 gradle -p clients/android assembleDebug
 ```
 
-APK 位于 `clients/android/app/build/outputs/apk/debug/`。上传 GitHub 后，CI 的 Android job 会构建调试 APK，成功后可从 Actions 下载；这不代表本地已完成真机测试。
+自行构建的 APK 位于 `clients/android/app/build/outputs/apk/debug/`。首次 [GitHub Actions 构建](https://github.com/LUCIFA666/MiniDiDi/actions/runs/45584776761) 已通过，可在该页面的 Artifacts 下载 `MiniDiDiPhone-debug-apk`。当前桌面项目和交付压缩包另附 `artifacts/MiniDiDiPhone-debug.apk`，Git 源码仓库不提交该二进制文件。APK 构建成功不代表已完成手机真机测试。
 
 1. 电脑用 `-Lan` 启动，电脑与手机连接同一 Wi-Fi。
 2. 在 App 填写启动窗口显示的 `http://电脑IP:8080`，授予运行时定位权限。
