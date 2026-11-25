@@ -97,6 +97,8 @@ third_party/         固定版本的 C++ 库与许可证
 
 ## GitHub
 
-本地 Git 仓库可以离线提交。提供 GitHub 账号授权后，再创建远程仓库并推送；这里不存储访问令牌。课程课件建议 Gitee 私有仓库，本项目按当前用户要求准备 GitHub；如老师要求仍需 Gitee，可增加第二个 remote。
+GitHub 私有仓库：[LUCIFA666/MiniDiDi](https://github.com/LUCIFA666/MiniDiDi)，主分支为 `main`。仓库不保存访问令牌或账号密码。登录有访问权限的 GitHub 账号后可以查看源码及 Actions 构建结果。
+
+课程课件建议 Gitee 私有仓库，本项目按当前用户要求使用 GitHub；如老师要求仍需 Gitee，可增加第二个 remote。
 
 项目原创代码采用 MIT 许可证，第三方代码保留各自版权与许可证。请小组逐项阅读、测试并理解代码，用真实的联调结果和个人贡献准备课程报告与答辩。
