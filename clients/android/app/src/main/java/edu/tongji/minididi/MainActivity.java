@@ -97,7 +97,7 @@ public final class MainActivity extends Activity implements SensorEventListener,
             estimator.update(linear,rotation,orientation[0],event.timestamp);
         }
     }
-    private static JSONArray array(float[] values){JSONArray a=new JSONArray();for(float v:values)a.put((double)v);return a;}
+    private static JSONArray array(float[] values) throws org.json.JSONException {JSONArray a=new JSONArray();for(float v:values)a.put((double)v);return a;}
     private JSONObject post(String path,JSONObject body)throws Exception{
         HttpURLConnection connection=(HttpURLConnection)new URL(serverUrl+path).openConnection();connection.setConnectTimeout(2500);connection.setReadTimeout(2500);connection.setRequestMethod("POST");connection.setRequestProperty("Content-Type","application/json; charset=utf-8");connection.setDoOutput(true);
         try{try(OutputStream out=connection.getOutputStream()){out.write(body.toString().getBytes(StandardCharsets.UTF_8));}int code=connection.getResponseCode();if(code==401){session="";throw new IOException("服务端已重置，正在重新注册");}if(code<200||code>=300)throw new IOException("HTTP "+code);try(InputStream in=connection.getInputStream();ByteArrayOutputStream out=new ByteArrayOutputStream()){byte[] buf=new byte[2048];int n;while((n=in.read(buf))!=-1)out.write(buf,0,n);return new JSONObject(out.toString("UTF-8"));}}finally{connection.disconnect();}
